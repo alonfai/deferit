@@ -9,5 +9,8 @@ npm-debug.*
 *.orig.*
 web-build/
 
+cypress/videos
+cypress/screenshots
+
 # macOS
 .DS_Store
