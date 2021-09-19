@@ -20,7 +20,7 @@ function customCommand() {
 Cypress.Commands.add('customCommand', customCommand);
 
 declare namespace Cypress {
-  interface Chainable<Subject> {
+  interface Chainable {
     customCommand: typeof customCommand;
   }
 }

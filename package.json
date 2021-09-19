@@ -14,7 +14,7 @@
     "cy:run": "cypress run",
     "e2e": "start-test web 19006 cy:open",
     "e2e:ci": "start-test web 19006 cy:run",
-    "test": "./node_modules/jest/bin/jest.js",
+    "test": "jest",
     "test:watch": "jest --watchAll",
     "test:ci": "npm run test --coverage",
     "test:badges": "npm run test:ci  && jest-coverage-badges"

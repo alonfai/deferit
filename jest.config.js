@@ -2,8 +2,8 @@
 module.exports = {
   // testEnvironment: 'jsdom',
   // preset: 'jest-expo',
-  // preset: 'react-native',
-  preset: 'ts-jest',
+  preset: 'react-native',
+  // preset: 'ts-jest',
   globals: {
     'ts-jest': {
       tsconfig: {
