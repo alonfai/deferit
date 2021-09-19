@@ -17,7 +17,7 @@ function customCommand() {
   return cy.wrap(42);
 }
 
-Cypress.Commands.add("customCommand", customCommand);
+Cypress.Commands.add('customCommand', customCommand);
 
 declare namespace Cypress {
   interface Chainable<Subject> {

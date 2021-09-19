@@ -1,16 +1,42 @@
+import * as faker from 'faker';
 import { useQuery } from 'react-query';
-import { ExchangeRatesResponse } from './types';
 
-export const QUERY_KEY = 'loadExchanges';
+import { Types, constants, helpers } from '../utils';
 
-async function fetchExchanges(): Promise<ExchangeRatesResponse> {
-  const response = await fetch(`${process.env.REACT_APP_API_BASE}/exchange_rates`);
+export const QUERY_KEY = 'loadBills';
+
+type CustomMockResponse = {
+  albumId: number;
+  id: number;
+  title: string;
+  url: string;
+  thumbnailUrl: string;
+};
+
+async function fetchBills(): Promise<Types.Bill[]> {
+  const response = await fetch(constants.API_URL);
   if (!response.ok) {
     throw new Error('Network response was not ok');
   }
-  return response.json();
+  const data: CustomMockResponse[] = await response.json();
+  const result: Types.Bill[] = data.map(item => {
+    return {
+      amount: faker.datatype.number(),
+      date: faker.date.future().toUTCString(),
+      id: item.id.toString(),
+      status: helpers.getRandomStatus(),
+      thumbnailUrl: item.thumbnailUrl,
+      url: item.url,
+      extra: {
+        name: faker.name.findName(),
+        paid: Math.random() < 0.5,
+        statusDescription: item.title,
+      },
+    };
+  });
+  return result;
 }
 
 export default function useBills() {
-  return useQuery<ExchangeRatesResponse, Error>([QUERY_KEY], fetchExchanges);
+  return useQuery<Types.Bill[], Error>([QUERY_KEY], fetchBills);
 }
