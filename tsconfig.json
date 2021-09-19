@@ -1,7 +1,15 @@
 {
   "files": [
-    "*.ts"
+    "*.ts",
+    "*.tsx"
   ],
-  "compilerOptions": {},
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "isolatedModules": true,
+    "strictNullChecks": true,
+    "noFallthroughCasesInSwitch": true,
+  },
   "extends": "expo/tsconfig.base"
 }
