@@ -5,8 +5,11 @@ npm-debug.*
 *.p8
 *.p12
 *.key
+.dccache
 *.mobileprovision
 *.orig.*
+.badges
+.cov
 web-build/
 
 cypress/videos

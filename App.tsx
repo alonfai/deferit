@@ -1,17 +1,31 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { Dimensions, StyleSheet, Text, View } from "react-native";
-import Header from "./components/Header";
+import { StatusBar } from "expo-status-bar";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { StyleSheet, Text, View } from "react-native";
 
-const { width, height } = Dimensions.get("window");
+const queryClient = new QueryClient();
+
+// React Query Native Devtools
+// if (__DEV__) {
+//   import("react-query-native-devtools")
+//     .then(({ addPlugin }) => {
+//       addPlugin({ queryClient });
+//     })
+//     .catch((err) => {
+//       console.log(
+//         `No installation of "react-query-native-devtools" was found ${err}`
+//       );
+//     });
+// }
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Header />
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <QueryClientProvider client={queryClient}>
+      <View style={styles.container}>
+        <Text>Open up App.tsx to start working on your app!</Text>
+        <StatusBar style="auto" />
+      </View>
+    </QueryClientProvider>
   );
 }
 
