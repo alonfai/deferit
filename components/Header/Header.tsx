@@ -1,6 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { constants } from '../../utils';
+import { Dimensions, StyleSheet, Text, View } from 'react-native';
 import { Foundation } from '@expo/vector-icons';
 
 export type Props = {};
@@ -15,7 +14,7 @@ const Header: React.FC<Props> = () => {
 };
 const styles = StyleSheet.create({
   container: {
-    height: constants.height / 10,
+    height: Dimensions.get('window').height / 10,
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',

@@ -1,6 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { constants } from '../../utils';
+import { Dimensions, StyleSheet, Text, View } from 'react-native';
 
 export type Props = {};
 
@@ -13,7 +12,7 @@ const ItemPopup: React.FC<Props> = () => {
 };
 const styles = StyleSheet.create({
   header: {
-    height: constants.height / 10,
+    height: Dimensions.get('window').height / 10,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'red',

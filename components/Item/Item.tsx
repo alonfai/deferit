@@ -1,7 +1,6 @@
 import React from 'react';
-import { TouchableOpacity, Image, StyleSheet, Text, View } from 'react-native';
-import Modal from 'react-native-modal';
-import { useToggle } from 'react-use';
+import { TouchableOpacity, Image, StyleSheet, View } from 'react-native';
+// import Modal from 'react-native-modal';
 import { helpers, Types } from '../../utils';
 import ItemStatus from '../ItemStatus';
 import Record from '../Record';
@@ -11,11 +10,11 @@ export type Props = {
 };
 
 function Item({ item }: { item: Types.Bill }, ref: React.ForwardedRef<any>) {
-  const [isModalVisible, toggleModalVisible] = useToggle(false);
+  const [isModalVisible, toggleModalVisible] = React.useState(false);
 
   return (
     <View style={styles.container} ref={ref}>
-      <TouchableOpacity onPress={toggleModalVisible}>
+      <TouchableOpacity>
         <Image style={styles.thumbnail} source={{ uri: item.thumbnailUrl }} />
       </TouchableOpacity>
       <View style={styles.status}>

@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { Items, Header } from './components';
+import { Header, Items } from './components';
 
 const queryClient = new QueryClient({
   defaultOptions: {
