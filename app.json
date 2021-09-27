@@ -10,6 +10,9 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "extra":{
+      "API_URL": "https://jsonplaceholder.typicode.com/photos"
+    },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
