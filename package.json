@@ -1,7 +1,6 @@
 {
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "preinstall": "npx npm-force-resolutions",
     "prepare": "husky install",
     "start": "expo start",
     "android": "expo start --android",
@@ -31,9 +30,11 @@
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
     "react-native-flipper": "^0.110.0",
+    "react-native-modal": "^13.0.0",
     "react-native-web": "~0.13.12",
     "react-query": "^3.24.1",
-    "react-query-native-devtools": "^3.0.1"
+    "react-query-native-devtools": "^3.0.1",
+    "react-use": "^17.3.1"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",

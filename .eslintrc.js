@@ -24,6 +24,22 @@ module.exports = {
         '@typescript-eslint/no-unused-vars': 'warn',
         '@typescript-eslint/explicit-module-boundary-types': 'off',
         '@typescript-eslint/no-empty-function': 'off',
+        '@typescript-eslint/ban-types': [
+          'error',
+          {
+            types: {
+              String: false,
+              Boolean: false,
+              Number: false,
+              Symbol: false,
+              '{}': false,
+              Object: false,
+              object: false,
+              Function: true,
+            },
+            extendDefaults: true,
+          },
+        ],
       },
     },
   ],

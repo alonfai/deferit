@@ -25,9 +25,9 @@ export interface Bill {
    */
   amount: number;
   /**
-   * Date the bill was generated
+   * Date the bill was generated in ISO format
    */
-  date: string;
+  date: Date;
   /**
    * Status of the bill
    */
@@ -42,9 +42,9 @@ export interface Bill {
   };
 }
 
-export interface BillCollection {
-  [id: string]: Bill;
-}
+// export interface BillCollection {
+//   [id: string]: Bill;
+// }
 
 /**
  * API Response error object
