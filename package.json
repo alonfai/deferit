@@ -28,9 +28,9 @@
     "http-status-codes": "^2.1.4",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-fast-compare": "^3.2.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
     "react-native-flipper": "^0.110.0",
-    "react-native-modal": "^13.0.0",
     "react-native-web": "~0.13.12",
     "react-query": "^3.24.1",
     "react-query-native-devtools": "^3.0.1"

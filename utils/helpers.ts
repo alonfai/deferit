@@ -1,4 +1,4 @@
-import { getHours, getMinutes, getSeconds, format } from 'date-fns';
+import { getHours, getMinutes, getSeconds, format, isBefore, isAfter } from 'date-fns';
 import * as faker from 'faker';
 
 import { Types } from '../utils';
@@ -11,6 +11,10 @@ export function getTimeValue(timestamp: string): string {
     undefined,
     { minimumIntegerDigits: 2 }
   )}`;
+}
+
+export function compareDates(dateA: Date, dateB: Date): number {
+  return isBefore(dateA, dateB) ? -1 : isAfter(dateA, dateB) ? 1 : 0;
 }
 
 export function formatDate(date: Date, resultFormat = 'dd/MM/yyyy'): string {
