@@ -1,8 +1,8 @@
 import React from 'react';
-import { Text, View, StyleSheet, SafeAreaView } from 'react-native';
+import { Text, View, StyleSheet, SafeAreaView, Dimensions, FlatList } from 'react-native';
 import { EvilIcons, MaterialIcons } from '@expo/vector-icons';
 import { useBills } from '../../api';
-import { constants, useIntersectionObserver } from '../../utils';
+import { constants, Types } from '../../utils';
 import Item from '../Item';
 
 export type Props = {};
@@ -11,14 +11,6 @@ const Items: React.FC = () => {
   const { data, isLoading, error, hasNextPage, fetchNextPage, isError } = useBills(
     constants.LimitRequestSize
   );
-
-  // Control the refetching of data automatically by user scrolling
-  const ref = React.useRef(null);
-  useIntersectionObserver({
-    ref,
-    onIntersect: fetchNextPage,
-    enabled: hasNextPage,
-  });
 
   // Determine the loading state
   if (isLoading) {
@@ -40,22 +32,24 @@ const Items: React.FC = () => {
     );
   }
 
+  const renderItem = ({ item }: { item: Types.Bill }) => {
+    return <Item item={item} />;
+  };
+
+  const bills = data?.pages.reduce(
+    (previousPage, currentPage) => [...previousPage, ...currentPage],
+    []
+  );
+
   return (
     <SafeAreaView style={styles.container}>
-      {data?.pages.map((page, pageIndex) => (
-        <React.Fragment key={pageIndex}>
-          {page.map((bill, billIndex) => {
-            // Last rendered trade
-            if (
-              pageIndex + 1 === data.pages.length &&
-              billIndex + 1 === constants.LimitRequestSize
-            ) {
-              return <Item key={bill.id} item={bill} ref={ref} />;
-            }
-            return <Item key={bill.id} item={bill} />;
-          })}
-        </React.Fragment>
-      ))}
+      <FlatList
+        data={bills}
+        renderItem={renderItem}
+        keyExtractor={item => item.id}
+        onEndReached={() => hasNextPage && fetchNextPage()}
+        onEndReachedThreshold={0.1}
+      />
     </SafeAreaView>
   );
 };
@@ -82,8 +76,8 @@ const styles = StyleSheet.create({
   errorText: {
     fontSize: 20,
     marginLeft: 10,
-    maxWidth: `${constants.width - 80}px`,
-    maxHeight: `${constants.height - 80}px`,
+    maxWidth: `${Dimensions.get('window').width - 80}px`,
+    maxHeight: `${Dimensions.get('window').height - 80}px`,
   },
 });
 
