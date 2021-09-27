@@ -1,6 +1,6 @@
 export { default as Header } from './Header';
 export { default as Items } from './Items';
-export { default as ItemSItemummary } from './Item';
+export { default as Item } from './Item';
 export { default as ItemPopup } from './ItemPopup';
 export { default as Record } from './Record';
 export { default as ItemStatus } from './ItemStatus';

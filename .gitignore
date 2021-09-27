@@ -8,6 +8,7 @@ npm-debug.*
 .dccache
 *.mobileprovision
 *.orig.*
+logs
 .badges
 .dccache
 .cov

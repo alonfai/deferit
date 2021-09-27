@@ -1,4 +1,4 @@
-import { Dimensions, Platform } from 'react-native';
+import { Platform } from 'react-native';
 
 /**
  * Different possible API Status codes
@@ -9,11 +9,6 @@ export const STATUS_CODES = {
   NOT_FOUND: 404,
   INTERNAL_SERVER_ERROR: 500,
 };
-
-/**
- * Get device dimensions
- */
-export const { width, height } = Dimensions.get('window');
 
 /**
  * Get device information
