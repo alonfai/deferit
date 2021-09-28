@@ -1,5 +1,3 @@
-import { Platform } from 'react-native';
-
 /**
  * Different possible API Status codes
  */
@@ -8,14 +6,6 @@ export const STATUS_CODES = {
   BAD_REQUEST: 400,
   NOT_FOUND: 404,
   INTERNAL_SERVER_ERROR: 500,
-};
-
-/**
- * Get device information
- */
-export const Device = {
-  isMobile: Platform.OS === 'android' || Platform.OS === 'ios',
-  isWeb: Platform.OS === 'web',
 };
 
 /**

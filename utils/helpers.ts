@@ -1,26 +1,29 @@
-import { getHours, getMinutes, getSeconds, format, isBefore, isAfter } from 'date-fns';
+import { Platform } from 'react-native';
+import { format } from 'date-fns';
 import * as faker from 'faker';
-
 import { Types } from '../utils';
 
-export function getTimeValue(timestamp: string): string {
-  const ts = new Date(timestamp);
-  return `${getHours(ts).toLocaleString(undefined, { minimumIntegerDigits: 2 })}:${getMinutes(
-    ts
-  ).toLocaleString(undefined, { minimumIntegerDigits: 2 })}:${getSeconds(ts).toLocaleString(
-    undefined,
-    { minimumIntegerDigits: 2 }
-  )}`;
-}
-
-export function compareDates(dateA: Date, dateB: Date): number {
-  return isBefore(dateA, dateB) ? -1 : isAfter(dateA, dateB) ? 1 : 0;
-}
-
+/**
+ * Format a given date object to a format for displaying
+ * @param date given Date
+ * @param resultFormat resulting ISO format type
+ * @returns string
+ */
 export function formatDate(date: Date, resultFormat = 'dd/MM/yyyy'): string {
   return format(date, resultFormat);
 }
 
+/**
+ * Get rendered device information whether its "mobile" or "web" device
+ */
+export function getDevice() {
+  return Platform.OS === 'android' || Platform.OS === 'ios' ? 'Mobile' : 'Web';
+}
+
+/**
+ * Generate random bill status value used for mocking
+ * @returns a device Status Enum value
+ */
 export function getRandomStatus(): Types.StatusValues {
   const val = faker.datatype.number({ min: 0, max: 3 });
   switch (val) {

@@ -6,5 +6,7 @@
     "isolatedModules": true,
     "strictNullChecks": true,
     "noFallthroughCasesInSwitch": true,
-  }
+    "types": ["jest"]
+  },
+  "include": ["**/*.ts|x"]
 }

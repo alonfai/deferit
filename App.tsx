@@ -1,8 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { Header, Items } from './components';
+import ErrorBoundary from 'react-native-error-boundary';
+import { ErrorFallback, Header, Items } from './components';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -14,13 +15,15 @@ const queryClient = new QueryClient({
 
 export default function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <View style={styles.container}>
-        <Header />
-        <Items />
-        <StatusBar style='auto' />
-      </View>
-    </QueryClientProvider>
+    <ErrorBoundary FallbackComponent={ErrorFallback}>
+      <QueryClientProvider client={queryClient}>
+        <SafeAreaView style={styles.container}>
+          <Header />
+          <Items />
+          <StatusBar style='auto' />
+        </SafeAreaView>
+      </QueryClientProvider>
+    </ErrorBoundary>
   );
 }
 
