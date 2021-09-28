@@ -36,15 +36,20 @@ export interface Bill {
    * Custom extra data to show on opening popup of the bill
    */
   extra: {
+    /**
+     * bill description string
+     */
     statusDescription: string;
+    /**
+     * person name on the bill
+     */
     name: string;
+    /**
+     * has the bill been paid or not
+     */
     paid: boolean;
   };
 }
-
-// export interface BillCollection {
-//   [id: string]: Bill;
-// }
 
 /**
  * API Response error object

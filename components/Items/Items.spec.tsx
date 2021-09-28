@@ -3,6 +3,6 @@
 
 describe('<Items />', () => {
   it('demo', () => {
-    expect(1).toEqual(1);
+    // expect(1).toEqual(1);
   });
 });

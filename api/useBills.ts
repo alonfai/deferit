@@ -8,14 +8,24 @@ import { Types, helpers, constants } from '../utils';
  */
 const QUERY_KEY = 'loadBills';
 
-type TradeQueryKey = [
+/**
+ * React-Query request context type
+ */
+type BillQueryKey = [
   key: string,
   item: {
     limit: number;
   }
 ];
-type TradePageParam = number;
 
+/**
+ * React-Query page parameter context type
+ */
+type BillPageParam = number;
+
+/**
+ * Fake API resposne data
+ */
 type CustomMockResponse = {
   albumId: number;
   id: number;
@@ -24,6 +34,11 @@ type CustomMockResponse = {
   thumbnailUrl: string;
 };
 
+/**
+ * Transforms the given API response to the app data type
+ * @param data given API response
+ * @returns Array of mapped data
+ */
 export function transformResponseToBill(data: CustomMockResponse[]): Types.Bill[] {
   return data.map(item => {
     return {
@@ -42,8 +57,13 @@ export function transformResponseToBill(data: CustomMockResponse[]): Types.Bill[
   });
 }
 
+/**
+ * Fetcher query method for retrieving a given set of bills in any time
+ * @param context React-Query request context
+ * @returns Async collection of bills
+ */
 export async function fetchBills(
-  context: QueryFunctionContext<TradeQueryKey, TradePageParam>
+  context: QueryFunctionContext<BillQueryKey, BillPageParam>
 ): Promise<Types.Bill[]> {
   if (!Constants.manifest?.extra?.API_URL) {
     throw new Error('Missing API_URL in app manifest');
@@ -62,6 +82,11 @@ export async function fetchBills(
   return result;
 }
 
+/**
+ * Custom hook to retrieve the bills data from a mocked API server
+ * @param limit numer of items to retrieve at any given moment
+ * @returns Async collection of bills
+ */
 export default function useBills(limit: number) {
   return useInfiniteQuery<Types.Bill[], Types.ResponseError>([QUERY_KEY, { limit }], fetchBills, {
     getNextPageParam: (lastPage, allPages) => {

@@ -1,84 +1,73 @@
 import React from 'react';
-import { Text, View, StyleSheet, SafeAreaView, Dimensions, FlatList } from 'react-native';
-import { EvilIcons, MaterialIcons } from '@expo/vector-icons';
+import { FlatList, View } from 'react-native';
 import { useBills } from '../../api';
-import { constants, Types } from '../../utils';
+import { constants, helpers, useIntersectionObserver } from '../../utils';
 import Item from '../Item';
+import Loading from '../Loading';
+import ErrorMessage from '../ErrorMessage';
 
 export type Props = {};
 
-const Items: React.FC = () => {
+const Items: React.FC<Props> = () => {
   const { data, isLoading, error, hasNextPage, fetchNextPage, isError } = useBills(
     constants.LimitRequestSize
   );
 
+  // Control the refetching of data automatically by user scrolling
+  const ref = React.useRef(null);
+  useIntersectionObserver({
+    ref,
+    onIntersect: fetchNextPage,
+    enabled: hasNextPage,
+  });
+
   // Determine the loading state
   if (isLoading) {
-    return (
-      <View style={styles.loading}>
-        <Text style={styles.loadingText}>Loading Data...</Text>
-        <EvilIcons name='spinner' size={24} color='black' />
-      </View>
-    );
+    return <Loading />;
   }
 
   // Unable to parse the API result
   if (isError) {
-    return (
-      <View style={styles.error}>
-        <MaterialIcons name='error' size={24} color='red' />
-        <Text style={styles.errorText}>{error?.message ?? ''}</Text>
-      </View>
-    );
+    return <ErrorMessage error={error} />;
   }
-
-  const renderItem = ({ item }: { item: Types.Bill }) => {
-    return <Item item={item} />;
-  };
 
   const bills = data?.pages.reduce(
     (previousPage, currentPage) => [...previousPage, ...currentPage],
     []
   );
 
-  return (
-    <SafeAreaView style={styles.container}>
-      <FlatList
-        data={bills}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}
-        onEndReached={() => hasNextPage && fetchNextPage()}
-        onEndReachedThreshold={0.1}
-      />
-    </SafeAreaView>
+  return helpers.getDevice() === 'Mobile' ? (
+    <FlatList
+      data={bills}
+      renderItem={({ item }) => <Item item={item} />}
+      keyExtractor={item => item.id}
+      onEndReached={() => hasNextPage && fetchNextPage()}
+      ListFooterComponent={<Loading />}
+      onEndReachedThreshold={0.5}
+    />
+  ) : (
+    <View>
+      {data?.pages.map((page, pageIndex) => (
+        <React.Fragment key={pageIndex}>
+          {page.map((bill, billIndex) => {
+            // Last rendered bill
+            if (
+              pageIndex + 1 === data.pages.length &&
+              billIndex + 1 === constants.LimitRequestSize
+            ) {
+              return (
+                <React.Fragment key={bill.id}>
+                  <Item item={bill} ref={ref} />
+                  <Loading />
+                </React.Fragment>
+              );
+            }
+            return <Item key={bill.id} item={bill} />;
+          })}
+        </React.Fragment>
+      ))}
+    </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  loading: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  loadingText: {
-    fontSize: 20,
-    marginBottom: 10,
-  },
-  error: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  errorText: {
-    fontSize: 20,
-    marginLeft: 10,
-    maxWidth: `${Dimensions.get('window').width - 80}px`,
-    maxHeight: `${Dimensions.get('window').height - 80}px`,
-  },
-});
 
 export default Items;

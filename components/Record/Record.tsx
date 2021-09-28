@@ -6,6 +6,9 @@ export type Props = {
   content: any;
 };
 
+/**
+ * Render a given bill atribute as a row in the bill panel box
+ */
 const Recrod: React.FC<Props> = ({ label, content }) => {
   return (
     <View style={styles.container}>
@@ -17,6 +20,8 @@ const Recrod: React.FC<Props> = ({ label, content }) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
+    alignItems: 'flex-start',
+    flexWrap: 'wrap',
     marginVertical: 5,
   },
   label: {
