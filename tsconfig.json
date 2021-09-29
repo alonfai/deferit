@@ -8,5 +8,9 @@
     "noFallthroughCasesInSwitch": true,
     "types": ["jest"]
   },
+  "files": [
+    "*.ts",
+    "*.tsx"
+  ],
   "include": ["**/*.ts|x"]
 }

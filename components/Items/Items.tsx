@@ -1,6 +1,6 @@
 import React from 'react';
 import { FlatList, View } from 'react-native';
-import { useBills } from '../../api';
+import { useBillsQuery } from '../../api';
 import { constants, helpers, useIntersectionObserver } from '../../utils';
 import Item from '../Item';
 import Loading from '../Loading';
@@ -9,7 +9,7 @@ import ErrorMessage from '../ErrorMessage';
 export type Props = {};
 
 const Items: React.FC<Props> = () => {
-  const { data, isLoading, error, hasNextPage, fetchNextPage, isError } = useBills(
+  const { data, isLoading, error, hasNextPage, fetchNextPage, isError } = useBillsQuery(
     constants.LimitRequestSize
   );
 
