@@ -5,8 +5,9 @@ import Header from './Header';
 
 describe('<Header />', () => {
   test('Render successfully', async () => {
-    const { getByText } = render(<Header />);
+    const { getByText, toJSON } = render(<Header />);
     const element = getByText('Deferit Bill List');
     expect(element).toBeTruthy();
+    expect(toJSON()).toMatchSnapshot();
   });
 });

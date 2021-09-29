@@ -39,6 +39,7 @@ const Items: React.FC<Props> = () => {
   return helpers.getDevice() === 'Mobile' ? (
     <FlatList
       data={bills}
+      testID='Mobile Bill List'
       renderItem={({ item }) => <Item item={item} />}
       keyExtractor={item => item.id}
       onEndReached={() => hasNextPage && fetchNextPage()}
@@ -46,7 +47,7 @@ const Items: React.FC<Props> = () => {
       onEndReachedThreshold={0.5}
     />
   ) : (
-    <View>
+    <View testID='Web Bill List'>
       {data?.pages.map((page, pageIndex) => (
         <React.Fragment key={pageIndex}>
           {page.map((bill, billIndex) => {

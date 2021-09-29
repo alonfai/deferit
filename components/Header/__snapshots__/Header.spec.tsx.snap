@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> Render successfully 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "royalblue",
+      "flexDirection": "row",
+      "height": 133.4,
+      "justifyContent": "center",
+      "paddingTop": 12,
+    }
+  }
+>
+  <Text />
+  <Text
+    style={
+      Object {
+        "fontSize": 20,
+        "fontWeight": "bold",
+        "marginLeft": 10,
+      }
+    }
+  >
+    Deferit Bill List
+  </Text>
+</View>
+`;

@@ -1,0 +1,237 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Item /> Render successfully 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "stretch",
+      "borderRadius": 10,
+      "borderWidth": 0.5,
+      "flex": 1,
+      "flexDirection": "row",
+      "justifyContent": "space-around",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "padding": 8,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 10,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+    >
+      <Image
+        source={
+          Object {
+            "uri": "http://www.image-thumbnail.jpg",
+          }
+        }
+        style={
+          Object {
+            "height": 100,
+            "width": 100,
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "flexDirection": "column",
+        "marginHorizontal": 15,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "fontWeight": "bold",
+          "textDecorationLine": "underline",
+        }
+      }
+    >
+      Status
+    </Text>
+    <View
+      accessibilityLabel="Status Label"
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text />
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "stretch",
+        "flexDirection": "column",
+        "marginHorizontal": 15,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "fontWeight": "bold",
+          "textDecorationLine": "underline",
+        }
+      }
+    >
+      Extra
+    </Text>
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+      >
+        <Text />
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "flexDirection": "column",
+        "marginHorizontal": 10,
+        "width": 130,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "fontWeight": "bold",
+          "textDecorationLine": "underline",
+        }
+      }
+    >
+      Summary
+    </Text>
+    <View
+      style={
+        Object {
+          "alignItems": "flex-start",
+          "flexDirection": "row",
+          "flexWrap": "wrap",
+          "marginVertical": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+        amount
+      </Text>
+      <Text
+        style={
+          Object {
+            "paddingLeft": 5,
+          }
+        }
+      >
+        $10
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "flex-start",
+          "flexDirection": "row",
+          "flexWrap": "wrap",
+          "marginVertical": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+        status
+      </Text>
+      <Text
+        style={
+          Object {
+            "paddingLeft": 5,
+          }
+        }
+      >
+        Processing
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "flex-start",
+          "flexDirection": "row",
+          "flexWrap": "wrap",
+          "marginVertical": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+        date
+      </Text>
+      <Text
+        style={
+          Object {
+            "paddingLeft": 5,
+          }
+        }
+      >
+        01/01/2022
+      </Text>
+    </View>
+  </View>
+</View>
+`;

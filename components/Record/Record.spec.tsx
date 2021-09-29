@@ -5,6 +5,7 @@ import Record from './Record';
 
 describe('<Header />', () => {
   test('Render successfully', async () => {
-    render(<Record label='' content='' />);
+    const { toJSON } = render(<Record label='' content='' />);
+    expect(toJSON()).toMatchSnapshot();
   });
 });

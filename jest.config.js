@@ -1,7 +1,8 @@
 /** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
 module.exports = {
-  preset: 'react-native',
+  preset: 'jest-expo',
   resetMocks: true,
+  resetModules: true,
   transform: {
     '^.+\\.tsx?$': 'babel-jest',
     '^.+\\.js$': '<rootDir>/node_modules/react-native/jest/preprocessor.js',

@@ -12,7 +12,7 @@ const Loading: React.FC<Props> = () => {
     <View style={styles.loading}>
       <Text style={styles.loadingText}>Loading Data...</Text>
       <View>
-        <EvilIcons name='spinner' size={24} color='black' />
+        <EvilIcons accessibilityLabel='spinner' name='spinner' size={24} color='black' />
       </View>
     </View>
   );
