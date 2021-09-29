@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Items /> Check render <FlatList /> if mobile device is run 1`] = `
+<RCTScrollView
+  ListFooterComponent={<Loading />}
+  data={Array []}
+  disableVirtualization={false}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  onContentSizeChange={[Function]}
+  onEndReached={[Function]}
+  onEndReachedThreshold={0.5}
+  onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  removeClippedSubviews={false}
+  renderItem={[Function]}
+  scrollEventThrottle={50}
+  stickyHeaderIndices={Array []}
+  testID="Mobile Bill List"
+  updateCellsBatchingPeriod={50}
+  viewabilityConfigCallbackPairs={Array []}
+  windowSize={21}
+>
+  <View>
+    <View
+      onLayout={[Function]}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "center",
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 20,
+              "marginRight": 5,
+            }
+          }
+        >
+          Loading Data...
+        </Text>
+        <View>
+          <Text />
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`<Items /> Check render a .map list if web device is run 1`] = `
+<View
+  testID="Web Bill List"
+/>
+`;
+
+exports[`<Items /> Render successfully with Loading state 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "flexDirection": "row",
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "fontSize": 20,
+        "marginRight": 5,
+      }
+    }
+  >
+    Loading Data...
+  </Text>
+  <View>
+    <Text />
+  </View>
+</View>
+`;
+
+exports[`<Items /> render error with Error object 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "flexDirection": "row",
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text />
+  <Text
+    style={
+      Object {
+        "fontSize": 20,
+        "marginLeft": 10,
+        "maxHeight": "1254px",
+        "maxWidth": "670px",
+      }
+    }
+  >
+    Error
+  </Text>
+</View>
+`;

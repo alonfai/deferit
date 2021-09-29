@@ -5,7 +5,7 @@ import { Types } from '../../utils';
 
 import ErrorMessage from './ErrorMessage';
 
-describe('<ErrorFallback />', () => {
+describe('<ErrorMessage />', () => {
   test('Render successfully when an error object is provided', async () => {
     const error: Types.ResponseError = {
       message: 'custom message',
@@ -14,14 +14,16 @@ describe('<ErrorFallback />', () => {
       stack: '',
     };
 
-    const { getByText } = render(<ErrorMessage error={error} />);
+    const { getByText, toJSON } = render(<ErrorMessage error={error} />);
     const genericError = getByText('custom message');
     expect(genericError).toBeTruthy();
+    expect(toJSON()).toMatchSnapshot();
   });
 
   test('Render null when an error object is undefined/null', async () => {
-    const { getByText } = render(<ErrorMessage error={null} />);
-    const genericError = getByText('custom message');
-    expect(genericError).not.toBeTruthy();
+    const { queryByText, toJSON } = render(<ErrorMessage error={null} />);
+    const genericError = queryByText('custom message');
+    expect(genericError).toBeNull();
+    expect(toJSON()).toMatchSnapshot();
   });
 });

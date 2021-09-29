@@ -28,7 +28,7 @@ const ItemStatus: React.FC<Props> = ({ status }) => {
   }
   // render bill status icon
   return (
-    <View style={styles.container}>
+    <View style={styles.container} accessibilityLabel='Status Label'>
       <FontAwesome5
         name={status === 'Schedule' ? 'calendar-check' : 'traffic-light'}
         size={24}

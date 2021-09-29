@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> Render successfully 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "flex-start",
+      "flexDirection": "row",
+      "flexWrap": "wrap",
+      "marginVertical": 5,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "fontWeight": "bold",
+      }
+    }
+  >
+    
+  </Text>
+  <Text
+    style={
+      Object {
+        "paddingLeft": 5,
+      }
+    }
+  >
+    
+  </Text>
+</View>
+`;

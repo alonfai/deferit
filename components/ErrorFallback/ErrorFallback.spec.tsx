@@ -9,7 +9,7 @@ describe('<ErrorFallback />', () => {
     const error = new Error('error');
 
     const mockResetError = jest.fn();
-    const { getByText, getByA11yLabel } = render(
+    const { getByText, getByA11yLabel, toJSON } = render(
       <ErrorFallback error={error} resetError={mockResetError} />
     );
     const genericError = getByText('Something went wrong:');
@@ -18,5 +18,6 @@ describe('<ErrorFallback />', () => {
     expect(genericError).toBeTruthy();
     expect(errorElement).toBeTruthy();
     expect(button).toBeTruthy();
+    expect(toJSON()).toMatchSnapshot();
   });
 });

@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ErrorMessage /> Render null when an error object is undefined/null 1`] = `null`;
+
+exports[`<ErrorMessage /> Render successfully when an error object is provided 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "flexDirection": "row",
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text />
+  <Text
+    style={
+      Object {
+        "fontSize": 20,
+        "marginLeft": 10,
+        "maxHeight": "1254px",
+        "maxWidth": "670px",
+      }
+    }
+  >
+    custom message
+  </Text>
+</View>
+`;
