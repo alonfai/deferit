@@ -87,11 +87,12 @@ export async function fetchBills(
  * @param limit numer of items to retrieve at any given moment
  * @returns Async collection of bills
  */
-export default function useBills(limit: number) {
+export default function useBillsQuery(limit: number) {
   return useInfiniteQuery<Types.Bill[], Types.ResponseError>([QUERY_KEY, { limit }], fetchBills, {
     getNextPageParam: (lastPage, allPages) => {
       return lastPage.length > 0 ? allPages.length + 1 : undefined;
     },
+    notifyOnChangeProps: ['data', 'error'],
     retry: (failureCount, error) => {
       // if api request for resouce not found, don't attempt to run a retry request. On other scenarios, try to re-run the request till max retries attempts reached
       return error.status !== constants.STATUS_CODES.NOT_FOUND

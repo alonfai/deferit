@@ -1,1 +1,1 @@
-export { default as useBills } from './useBills';
+export { default as useBillsQuery } from './useBillsQuery';
