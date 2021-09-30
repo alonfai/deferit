@@ -2,7 +2,6 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
 import Items from './Items';
-import { FlatList } from 'react-native';
 
 const mockGetDevice = jest.fn();
 const mockUseIntersectionObserver = jest.fn();
