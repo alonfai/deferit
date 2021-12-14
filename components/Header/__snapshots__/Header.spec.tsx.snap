@@ -23,7 +23,7 @@ exports[`<Header /> Render successfully 1`] = `
       }
     }
   >
-    Deferit Bill List
+    Bill List
   </Text>
 </View>
 `;

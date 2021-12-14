@@ -6,7 +6,7 @@ import Header from './Header';
 describe('<Header />', () => {
   test('Render successfully', async () => {
     const { getByText, toJSON } = render(<Header />);
-    const element = getByText('Deferit Bill List');
+    const element = getByText('Bill List');
     expect(element).toBeTruthy();
     expect(toJSON()).toMatchSnapshot();
   });

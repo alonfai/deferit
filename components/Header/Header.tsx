@@ -11,7 +11,7 @@ const Header: React.FC<Props> = () => {
   return (
     <View style={styles.container}>
       <Foundation name='dollar-bill' size={24} color='black' />
-      <Text style={styles.title}>Deferit Bill List</Text>
+      <Text style={styles.title}>Bill List</Text>
     </View>
   );
 };
